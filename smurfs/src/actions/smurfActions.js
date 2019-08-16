@@ -1,9 +1,13 @@
 import axios from 'axios'
 
+//get request
 export const FETCH_SMURF_DATA_START = 'FETCH_SMURF_DATA_START';
 export const FETCH_SMURF_DATA_SUCCESS = 'FETCH_SMURF_DATA_SUCCESS';
 export const FETCH_SMURF_DATA_FAILURE = 'FETCH_SMURF_DATA_FAILURE';
-export const ADD_SMURF = 'ADD_SMURF'
+
+//post request
+export const POST_SMURF_START = 'POST_SMURF_START';
+export const POST_SMURF_SUCCESS = 'POST_SMURF_SUCCESS'
 
 
 export const getSmurfData = () => {
@@ -22,18 +26,15 @@ export const getSmurfData = () => {
     };
 };
 
-// export const addSmurf = smurfChar => {
-//     console.log('add action invoked')
-//     return {type: 'ADD_SMURF', payload:smurfChar }
-// }
 
-export const addSmurf = ()=> {
-    console.log('add action invoked', addSmurf)
+
+export const addSmurf = newSmurf => {
     return dispatch =>{
-        axios.post('http://localhost:3333/smurfs')
+        dispatch({type: 'POST_SMURF_START'})
+        axios.post('http://localhost:3333/smurfs', newSmurf)
             .then(res => {
-                dispatch({type: 'ADD_SMURF', payload:res })
-                console.log('res success', res)
+                dispatch({type: 'POST_SMURF_SUCCESS', payload:res.data })
+                console.log('res success', res.data)
             })
             .catch( err => {
                 console.log('err', err)

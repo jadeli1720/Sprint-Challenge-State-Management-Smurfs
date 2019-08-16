@@ -22,7 +22,7 @@ export default function SmurfForm({ state, add }) {
         setNewSmurf({ name: '', age: '', height: '' })
     }
 
-    console.log('Set New Smurf',setNewSmurf);
+    console.log('Set New Smurf',newSmurf);
 
 
 
@@ -51,7 +51,6 @@ export default function SmurfForm({ state, add }) {
                     onChange={handleChange}
                 />
                 <button type="submit">Submit</button>
-                {/* onClick={() => {add(add)} } */}
             </form>
         </>
     )

@@ -22,7 +22,7 @@ const SmurfList = props => {
             </button>
             <SmurfForm
                             state={props.smurfs}
-                            add={addSmurf}
+                            add={props.addSmurf}
              />
             {props.smurfs && props.smurfs.map(char => (
                 <Smurf
