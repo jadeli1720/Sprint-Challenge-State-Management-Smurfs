@@ -7,13 +7,13 @@ import { getSmurfData } from '../actions';
 import Smurf from './smurf'
 
 const SmurfList = props => {
-    console.log('SmurfList', props.smurfs)
+    // console.log('SmurfList', props.smurfs)
     return (
         <div>
             <button onClick={props.getSmurfData}>
                 {props.isLoading ? (
                     <Loader type="ThreeDots"
-                        color="#ff7930"
+                        color="#ff7930"//change color
                         height={40}
                         width={40} />
                 ) : ('See Smurfs')
@@ -33,8 +33,8 @@ const SmurfList = props => {
 const mapStateToProps = state => {
     console.log('maptostate', state);
     return {
-        test: state.test,
-        smurfs: state.smurfs
+        smurfs: state.smurfs,
+        isLoading: state.isLoading
     }
 }
 
