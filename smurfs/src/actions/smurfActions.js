@@ -28,7 +28,7 @@ export const getSmurfData = () => {
 // }
 
 export const addSmurf = ()=> {
-    console.log('add action invoked')
+    console.log('add action invoked', addSmurf)
     return dispatch =>{
         axios.post('http://localhost:3333/smurfs')
             .then(res => {

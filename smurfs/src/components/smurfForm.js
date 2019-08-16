@@ -7,12 +7,12 @@ export default function SmurfForm({ state, add }) {
 
     function handleChange(e) {
         const updateSmurf = { ...newSmurf, [e.target.name]: e.target.value }
-        console.log(
-            "handleChange",
-            e.target.name,
-            e.target.value,
-            updateSmurf
-        );
+        // console.log(
+        //     "handleChange",
+        //     e.target.name,
+        //     e.target.value,
+        //     updateSmurf
+        // );
         setNewSmurf(updateSmurf)
     }
 
@@ -21,6 +21,8 @@ export default function SmurfForm({ state, add }) {
         add(newSmurf);
         setNewSmurf({ name: '', age: '', height: '' })
     }
+
+    console.log('Set New Smurf',setNewSmurf);
 
 
 
