@@ -22,7 +22,7 @@ export default function SmurfForm({ state, add }) {
         setNewSmurf({ name: '', age: '', height: '' })
     }
 
-    console.log('Set New Smurf',newSmurf);
+    // console.log('Set New Smurf',newSmurf);
 
 
 
