@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-export default function SmurfForm({ state }) {
+export default function SmurfForm({ state, add }) {
     const [newSmurf, setNewSmurf] = useState({ name: '', age: '', height: '' })
     // console.log(newSmurf);
 
@@ -18,6 +18,7 @@ export default function SmurfForm({ state }) {
 
     function submitSmurf(e) {
         e.preventDefault();
+        add(newSmurf);
         setNewSmurf({ name: '', age: '', height: '' })
     }
 
@@ -48,6 +49,7 @@ export default function SmurfForm({ state }) {
                     onChange={handleChange}
                 />
                 <button type="submit">Submit</button>
+                {/* onClick={() => {add(add)} } */}
             </form>
         </>
     )

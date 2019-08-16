@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
-import { getSmurfData } from '../actions';
-import FormikSmurfForm from './smurfForm';
+import { getSmurfData, addSmurf } from '../actions';
+import SmurfForm from './smurfForm';
 import Smurf from './smurf'
 
 const SmurfList = props => {
@@ -20,8 +20,9 @@ const SmurfList = props => {
                 ) : ('See Smurfs')
                 }
             </button>
-            <FormikSmurfForm
+            <SmurfForm
                             state={props.smurfs}
+                            add={addSmurf}
              />
             {props.smurfs && props.smurfs.map(char => (
                 <Smurf
@@ -42,4 +43,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getSmurfData })(SmurfList);
+export default connect(mapStateToProps, { getSmurfData, addSmurf })(SmurfList);
