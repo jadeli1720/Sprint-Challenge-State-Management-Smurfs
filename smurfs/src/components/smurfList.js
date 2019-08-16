@@ -4,6 +4,7 @@ import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import { getSmurfData } from '../actions';
+import FormikSmurfForm from './smurfForm';
 import Smurf from './smurf'
 
 const SmurfList = props => {
@@ -19,6 +20,7 @@ const SmurfList = props => {
                 ) : ('See Smurfs')
                 }
             </button>
+            <FormikSmurfForm />
             {props.smurfs && props.smurfs.map(char => (
                 <Smurf
                     key={char.id}
