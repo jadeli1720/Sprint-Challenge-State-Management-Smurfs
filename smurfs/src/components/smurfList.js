@@ -1,19 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
+import Smurf from './smurf'
 
 const SmurfList = props => {
+    console.log('SmurfList', props.smurfs)
     return (
-        <>
-            <p>This is from the SmurfList</p>
-            {props.test}
-        </>
+        <div>
+            {props.smurfs.map(char => (
+                <Smurf
+                    key={char.id}
+                    smurf={char}
+                />
+            ))}
+            
+        </div>
     )
 }
 
 const mapStateToProps = state => {
-    console.log('smurfList', state);
+    console.log('maptostate', state);
     return {
-        test:state.test
+        test:state.test,
+        smurfs: state.smurfs
     }
 }
 
