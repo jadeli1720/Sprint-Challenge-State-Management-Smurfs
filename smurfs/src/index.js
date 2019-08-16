@@ -10,6 +10,8 @@ import { reducer } from './reducers'
 
 const store =createStore(reducer, applyMiddleware(thunk))
 
+// console.log(store)
+
 const rootElement = document.getElementById('root');
 ReactDOM.render(
     <Provider store={store}>
