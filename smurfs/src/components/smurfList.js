@@ -20,7 +20,9 @@ const SmurfList = props => {
                 ) : ('See Smurfs')
                 }
             </button>
-            <FormikSmurfForm />
+            <FormikSmurfForm
+                            state={props.smurfs}
+             />
             {props.smurfs && props.smurfs.map(char => (
                 <Smurf
                     key={char.id}
