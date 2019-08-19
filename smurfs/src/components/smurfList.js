@@ -11,7 +11,9 @@ const SmurfList = props => {
     // console.log('SmurfList', props.smurfs)
     return (
         <div>
-            <SmurfForm/>
+            <SmurfForm
+            smurf={props.smurfs}
+            />
             <button onClick={props.getSmurfData}>
                 {props.isLoading ? (
                     <Loader type="ThreeDots"

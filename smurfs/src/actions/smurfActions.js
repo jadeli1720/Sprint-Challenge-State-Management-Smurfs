@@ -24,17 +24,17 @@ export const getSmurfData = () => {
             .then(res => {
                 //res.data
                 dispatch({ type: 'FETCH_SMURF_DATA_SUCCESS', payload: res.data });
-                console.log('res success', res)
+                // console.log('res success', res)
             })
             .catch(err => {
                 dispatch({ type: 'FETCH_SMURF_DATA_FAILURE', payload: err.response });
-                console.log('error', err)
+                // console.log('error', err)
             });
     };
 };
 
 
-//Post new smurf inputed in smurfForm to server
+//Post new smurf input in smurfForm to server
 export const addSmurf = newSmurf => {
     return dispatch => {
         dispatch({ type: 'POST_SMURF_START' })

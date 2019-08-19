@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import { Form, Field, withFormik } from "formik";
 import { connect } from "react-redux";
 import {addSmurf} from '../actions';
@@ -6,15 +6,16 @@ import {addSmurf} from '../actions';
 
 const SmurfForm = (props,{values, handleSubmit, status}) => {
   // const [newSmurf, setNewSmurf] = useState({ name: '', age: '', height: '' })
+//   console.log('Forms',smurfs)
   return (
     <Form>
       <label>
         Name:
-        <Field type="text" name="name" placeholder="Smurf" value={props.values.name} />
+        <Field type="text" name="name" placeholder="Smurf"  />
       </label>
       <label>
         Age: 
-        <Field type="text" name="age" placeholder="Age"  />
+        <Field type="text" name="age" placeholder="Age"   />
       </label>
       <label>
         Height:
@@ -34,8 +35,9 @@ const FormikSmurfForm = withFormik({
     };
   },
 
-  handleSubmit(values, {resetForm, setSubmitting}){
-      addSmurf(values);
+  handleSubmit(values, {props,resetForm, setSubmitting}){
+    props.addSmurf(values);
+    console.log('handle submit', values);
     resetForm('');
     setSubmitting(false);
   }
@@ -43,7 +45,6 @@ const FormikSmurfForm = withFormik({
 })(SmurfForm);
 
 const mapStateToProps = state => {
-    // console.log('maptostate', state);
     return {
         smurfs: state.smurfs,
     }

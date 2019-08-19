@@ -53,7 +53,7 @@ export const reducer = (state = initialState, action) => {
         case POST_SMURF_SUCCESS: {
             return {
                 ...state,
-                smurfs: [...state.smurfs, action.payload],
+                smurfs:action.payload,//cannot have this: [...state.smurfs, action.payload] Caused form not to render information from form. Now when we add smurf, array of all smurfs automatically renders to the page!!
                 isLoading:false,
                 error:''
             }
