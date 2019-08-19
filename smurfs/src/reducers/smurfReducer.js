@@ -77,7 +77,8 @@ export const reducer = (state = initialState, action) => {
         case DELETE_SMURF_SUCCESS: {
             return {
                 ...state,
-                smurf: state.smurf.filter(smurf => smurf.id !== action.payload.id),
+                smurf: action.payload,
+                isLoading:false,
                 error: ''
             }
         }

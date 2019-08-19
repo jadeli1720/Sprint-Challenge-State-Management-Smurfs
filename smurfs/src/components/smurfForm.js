@@ -35,7 +35,7 @@ const FormikSmurfForm = withFormik({
   },
 
   handleSubmit(values, {resetForm, setSubmitting}){
-      addSmurf(values)
+      addSmurf(values);
     resetForm('');
     setSubmitting(false);
   }
