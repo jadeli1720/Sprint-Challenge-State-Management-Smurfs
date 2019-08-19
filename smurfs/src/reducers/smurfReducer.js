@@ -49,7 +49,7 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 isLoading: true,
                 error: ''
-            };
+            }
         case POST_SMURF_SUCCESS: {
             return {
                 ...state,
@@ -57,14 +57,14 @@ export const reducer = (state = initialState, action) => {
                 isLoading:false,
                 error:''
             }
-        };
+        }
         case POST_SMURF_FAILURE: {
             return {
                 ...state,
                 isLoading: false,
                 error: action.payload
             }
-        };
+        }
 
         //Delete smurf
         case DELETE_SMURF_START: {
@@ -73,20 +73,21 @@ export const reducer = (state = initialState, action) => {
                 isLoading: true,
                 error: ''
             }
-        };
+        }
         case DELETE_SMURF_SUCCESS: {
             return {
                 ...state,
-                smurf: state.smurf.filter(smurf => smurf.id !== action.payload.id)
+                smurf: state.smurf.filter(smurf => smurf.id !== action.payload.id),
+                error: ''
             }
-        };
+        }
         case DELETE_SMURF_FAILURE: {
             return {
                 ...state,
                 isLoading: false,
                 error: action.payload
             }
-        };
+        }
         default:
             return state;
     }

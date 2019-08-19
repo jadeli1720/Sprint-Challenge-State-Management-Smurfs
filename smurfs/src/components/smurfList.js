@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
-import { getSmurfData} from '../actions';
+import { getSmurfData, deleteSmurf} from '../actions';
 import SmurfForm from './smurfForm';
 import Smurf from './smurf'
 
@@ -26,6 +26,7 @@ const SmurfList = props => {
                 <Smurf
                     key={char.id}
                     smurf={char}
+                    delete={props.deleteSmurf}
                 />
             ))}
 
@@ -41,4 +42,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getSmurfData})(SmurfList);
+export default connect(mapStateToProps, { getSmurfData, deleteSmurf})(SmurfList);
