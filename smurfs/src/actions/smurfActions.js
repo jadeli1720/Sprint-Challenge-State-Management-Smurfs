@@ -7,9 +7,14 @@ export const FETCH_SMURF_DATA_FAILURE = 'FETCH_SMURF_DATA_FAILURE';
 
 //post request
 export const POST_SMURF_START = 'POST_SMURF_START';
-export const POST_SMURF_SUCCESS = 'POST_SMURF_SUCCESS'
+export const POST_SMURF_SUCCESS = 'POST_SMURF_SUCCESS';
+export const POST_SMURF_FAILURE = 'POST_SMURF_FAILURE'
+
+//delete request
+export const DELETE_SMURF_START = 'DELETE_SMURF_START'
 
 
+//Get data from server
 export const getSmurfData = () => {
     return dispatch => {
         dispatch({ type: 'FETCH_SMURF_DATA_START' });
@@ -27,7 +32,7 @@ export const getSmurfData = () => {
 };
 
 
-
+//Post new smurf inputed in smurfForm to server
 export const addSmurf = newSmurf => {
     return dispatch =>{
         dispatch({type: 'POST_SMURF_START'})
@@ -37,8 +42,18 @@ export const addSmurf = newSmurf => {
                 console.log('res success', res.data)
             })
             .catch( err => {
+                dispatch({ type:'FETCH_SMURF_DATA_FAILURE', payload: err.response })
                 console.log('err', err)
             })
     
+    }
+}
+
+//Delete
+
+export const deleteSmurf = smurf => {
+    return dispatch => {
+        dispatch({type: 'DELETE_SMURF_START'})
+        axios.delete('http://localhost:3333/smurfs/${smurf.id}')
     }
 }

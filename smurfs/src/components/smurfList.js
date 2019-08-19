@@ -11,6 +11,7 @@ const SmurfList = props => {
     // console.log('SmurfList', props.smurfs)
     return (
         <div>
+            <SmurfForm/>
             <button onClick={props.getSmurfData}>
                 {props.isLoading ? (
                     <Loader type="ThreeDots"
@@ -20,7 +21,7 @@ const SmurfList = props => {
                 ) : ('See Smurfs')
                 }
             </button>
-            <SmurfForm/>
+            
             {props.smurfs && props.smurfs.map(char => (
                 <Smurf
                     key={char.id}
