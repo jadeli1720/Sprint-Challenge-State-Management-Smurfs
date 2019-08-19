@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
-import { getSmurfData, addSmurf } from '../actions';
+import { getSmurfData} from '../actions';
 import SmurfForm from './smurfForm';
 import Smurf from './smurf'
 
@@ -20,10 +20,7 @@ const SmurfList = props => {
                 ) : ('See Smurfs')
                 }
             </button>
-            <SmurfForm
-                            state={props.smurfs}
-                            add={props.addSmurf}
-             />
+            <SmurfForm/>
             {props.smurfs && props.smurfs.map(char => (
                 <Smurf
                     key={char.id}
@@ -43,4 +40,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getSmurfData, addSmurf })(SmurfList);
+export default connect(mapStateToProps, { getSmurfData})(SmurfList);
