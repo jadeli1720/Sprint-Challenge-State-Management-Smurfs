@@ -34,7 +34,7 @@ const SmurfList = props => {
 }
 
 const mapStateToProps = state => {
-    console.log('maptostate', state);
+    // console.log('maptostate', state);
     return {
         smurfs: state.smurfs,
         isLoading: state.isLoading

@@ -43,7 +43,7 @@ const FormikSmurfForm = withFormik({
 })(SmurfForm);
 
 const mapStateToProps = state => {
-    console.log('maptostate', state);
+    // console.log('maptostate', state);
     return {
         smurfs: state.smurfs,
     }
