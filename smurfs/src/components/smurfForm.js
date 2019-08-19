@@ -4,13 +4,13 @@ import { connect } from "react-redux";
 import {addSmurf} from '../actions';
 
 
-const SmurfForm = ({values, handleSubmit, status}) => {
+const SmurfForm = (props,{values, handleSubmit, status}) => {
   // const [newSmurf, setNewSmurf] = useState({ name: '', age: '', height: '' })
   return (
     <Form>
       <label>
         Name:
-        <Field type="text" name="name" placeholder="Smurf" />
+        <Field type="text" name="name" placeholder="Smurf" value={props.values.name} />
       </label>
       <label>
         Age: 
